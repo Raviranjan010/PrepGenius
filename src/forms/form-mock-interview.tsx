@@ -306,7 +306,7 @@ Assess development best practices, debugging, real-world problem solving, system
       <FormProvider {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full p-8 rounded-3xl flex-col flex items-start justify-start gap-6 bg-card/50 backdrop-blur-md border border-white/5 shadow-xl"
+          className="glass-card w-full p-8 rounded-2xl flex-col flex items-start justify-start gap-6"
         >
           {/* Model Selection */}
           <FormField
@@ -322,7 +322,7 @@ Assess development best practices, debugging, real-world problem solving, system
                   <div className="relative group">
                     <select
                       {...field}
-                      className="h-12 w-full rounded-xl bg-background/50 border border-white/5 px-4 text-sm focus:ring-2 focus:ring-primary outline-none appearance-none transition-all hover:bg-background/80"
+                      className="h-12 w-full rounded-xl bg-white/45 border border-white/70 px-4 text-sm focus:ring-2 focus:ring-primary outline-none appearance-none transition-all hover:bg-white"
                     >
                       <option value="gemini-1.5-flash" className="bg-background">Gemini 1.5 Flash (Balanced & Fast)</option>
                       <option value="gemini-1.5-pro" className="bg-background">Gemini 1.5 Pro (Deep & Complex)</option>
@@ -482,7 +482,7 @@ Assess development best practices, debugging, real-world problem solving, system
             <Button
               type="submit"
               size={"lg"}
-              className="bg-primary text-primary-foreground rounded-xl px-12 shadow-lg shadow-primary/20 transition-all hover:scale-105"
+              className="rounded-xl px-12 transition-all hover:scale-105"
               disabled={isSubmitting || !isValid || isLoading}
             >
               {isLoading ? (

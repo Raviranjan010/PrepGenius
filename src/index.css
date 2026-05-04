@@ -6,31 +6,31 @@
 
 @layer base {
   :root {
-    --background: 160 10% 98%; /* Light mode: subtle emerald-tinted white */
-    --foreground: 160 50% 5%;
-    --card: 160 10% 95%;
-    --card-foreground: 160 50% 5%;
-    --popover: 160 10% 98%;
-    --popover-foreground: 160 50% 5%;
-    --primary: 160 84% 39%;    /* Emerald 600 */
-    --primary-foreground: 160 10% 98%;
-    --secondary: 160 20% 90%;
-    --secondary-foreground: 160 50% 10%;
-    --muted: 160 10% 85%;
-    --muted-foreground: 160 20% 40%;
-    --accent: 160 84% 39%;
-    --accent-foreground: 160 10% 98%;
+    --background: 34 38% 95%;
+    --foreground: 230 17% 8%;
+    --card: 35 42% 96%;
+    --card-foreground: 230 17% 8%;
+    --popover: 35 42% 97%;
+    --popover-foreground: 230 17% 8%;
+    --primary: 22 78% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 32 31% 89%;
+    --secondary-foreground: 230 17% 12%;
+    --muted: 33 25% 87%;
+    --muted-foreground: 230 9% 39%;
+    --accent: 145 36% 43%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 160 20% 85%;
-    --input: 160 20% 85%;
-    --ring: 160 84% 39%;
-    --chart-1: 160 84% 39%;
-    --chart-2: 160 40% 50%;
-    --chart-3: 160 60% 30%;
-    --chart-4: 160 30% 60%;
-    --chart-5: 160 20% 70%;
-    --radius: 0.75rem; 
+    --border: 31 24% 80%;
+    --input: 31 24% 80%;
+    --ring: 22 78% 53%;
+    --chart-1: 22 78% 53%;
+    --chart-2: 145 36% 43%;
+    --chart-3: 266 39% 66%;
+    --chart-4: 41 82% 67%;
+    --chart-5: 230 12% 34%;
+    --radius: 0.9rem; 
   }
 
   .dark {
@@ -60,20 +60,44 @@
   * {
     @apply border-border;
   }
+  html {
+    background: hsl(var(--background));
+  }
+
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-primary-foreground transition-colors duration-300;
+    @apply text-foreground font-sans antialiased selection:bg-primary/30 selection:text-primary-foreground transition-colors duration-300;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 16% 10%, rgba(255,255,255,0.92), transparent 26rem),
+      radial-gradient(circle at 82% 16%, rgba(222,145,73,0.16), transparent 23rem),
+      radial-gradient(circle at 22% 80%, rgba(61,133,97,0.12), transparent 24rem),
+      linear-gradient(135deg, #f5f0e9 0%, #fffaf3 46%, #eadfd3 100%);
   }
 
   .text-glow {
-    text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); 
+    text-shadow: 0 12px 35px rgba(211, 105, 43, 0.22); 
   }
   
   .glass {
-    @apply bg-background/80 backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)];
+    @apply bg-white/45 backdrop-blur-2xl border border-white/70 shadow-[0_24px_70px_rgba(34,28,20,0.10)];
   }
 
   .glass-card {
-    @apply bg-card/60 backdrop-blur-xl border border-white/15 dark:border-white/10 shadow-xl hover:shadow-primary/10 transition-all duration-300;
+    @apply bg-white/40 backdrop-blur-2xl border border-white/70 shadow-[0_18px_60px_rgba(39,31,24,0.09)] hover:shadow-[0_24px_70px_rgba(211,105,43,0.12)] transition-all duration-300;
+  }
+
+  .cream-panel {
+    @apply border border-white/75 bg-white/35 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_20px_60px_rgba(39,31,24,0.10)];
+  }
+
+  .ink-button {
+    @apply bg-[#111118] text-white shadow-[0_12px_30px_rgba(17,17,24,0.24)] hover:bg-[#23232d];
+  }
+
+  .accent-script {
+    color: hsl(var(--primary));
+    font-style: italic;
+    font-weight: 600;
   }
 }
 

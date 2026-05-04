@@ -5,24 +5,22 @@ import { NavLink, Link } from "react-router-dom";
 import { ProfileContainer } from "@/containers/profile-container";
 import { ToggleContainer } from "@/containers/toggle-container";
 import { useAuth } from "@clerk/clerk-react";
-import { Zap } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export const Header = () => {
   const { userId } = useAuth();
 
   return (
-    <header
-      className="sticky top-0 z-50 w-full border-b border-white/5 bg-background/60 backdrop-blur-xl transition-all duration-300"
-    >
-      <Container>
-        <div className="flex h-16 items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 w-full px-3 pt-3">
+      <Container className="py-0">
+        <div className="cream-panel flex h-16 items-center justify-between gap-4 rounded-2xl px-4 md:px-7">
           <div className="flex items-center gap-10">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group transition-transform hover:scale-105">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 shadow-lg shadow-primary/10">
-                <Zap className="h-5 w-5 text-primary fill-primary/20 group-hover:fill-primary transition-all" />
+            <Link to="/" className="flex items-center gap-2 group transition-transform hover:scale-[1.02]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#111118] shadow-lg shadow-black/10">
+                <Sparkles className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-black tracking-tight text-foreground uppercase">
+              <span className="text-xl font-bold tracking-tight text-foreground">
                 Prep<span className="text-primary">Genius</span>
               </span>
             </Link>
@@ -46,7 +44,7 @@ export const Header = () => {
 
           <div className="flex items-center gap-4">
             {/* Auth/Profile */}
-            <div className="flex items-center gap-3 pl-4 border-l border-white/5">
+            <div className="flex items-center gap-3 pl-4 border-l border-border/60">
               <ProfileContainer />
               <ToggleContainer />
             </div>
@@ -54,7 +52,7 @@ export const Header = () => {
             {!userId && (
               <Link
                 to="/sign-in"
-                className="hidden md:inline-flex h-9 items-center justify-center rounded-xl bg-primary px-5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95"
+                className="hidden md:inline-flex h-10 items-center justify-center rounded-xl border border-white/70 bg-white/55 px-5 text-sm font-semibold text-foreground shadow-sm transition-all hover:bg-white active:scale-95"
               >
                 Sign In
               </Link>
@@ -72,8 +70,8 @@ function HeaderNavLink({ to, children }: { to: string; children: React.ReactNode
       to={to}
       className={({ isActive }) =>
         cn(
-          "relative px-4 py-2 text-xs font-bold uppercase tracking-widest transition-all hover:text-primary",
-          isActive ? "text-primary" : "text-muted-foreground"
+          "relative px-4 py-2 text-sm font-medium transition-all hover:text-primary",
+          isActive ? "text-foreground" : "text-muted-foreground"
         )
       }
     >
@@ -81,7 +79,7 @@ function HeaderNavLink({ to, children }: { to: string; children: React.ReactNode
         <>
           {children}
           {isActive && (
-            <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary rounded-full shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+            <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary rounded-full" />
           )}
         </>
       )}

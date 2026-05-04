@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="w-full border-t border-border bg-background">
+    <footer className="w-full px-4 pb-6 pt-2">
       <Container>
-        <div className="grid gap-8 py-8 md:grid-cols-[1fr_auto] md:items-center">
+        <div className="cream-panel grid gap-8 rounded-2xl px-6 py-8 md:grid-cols-[1fr_auto] md:items-center">
           <div>
-            <p className="text-sm font-semibold text-foreground">PrepGenius</p>
+            <p className="text-sm font-bold text-foreground">PrepGenius</p>
             <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground">
               AI-assisted interview practice for creating targeted mock sessions, reviewing feedback, and improving with your own progress data.
             </p>

@@ -95,38 +95,38 @@ export const Dashboard = () => {
   const firstName = user?.firstName ?? "there";
 
   return (
-    <div className="min-h-screen bg-background pb-12 animate-fade-in relative">
+    <div className="min-h-screen pb-12 animate-fade-in relative">
       {/* Dynamic Background Elements */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-white/40 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden border-b border-white/10 bg-card/40 backdrop-blur-md py-14">
+      <section className="relative mx-4 mt-6 overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/30 py-12 backdrop-blur-2xl shadow-[0_20px_70px_rgba(39,31,24,0.08)]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-8 animate-slide-up">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-emerald-400 rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000" />
-                <div className="relative flex h-20 w-20 items-center justify-center rounded-[1.8rem] bg-[#0A0A0A] border border-white/10 text-2xl font-black text-primary shadow-2xl">
+                <div className="absolute -inset-1 rounded-[2rem] bg-primary/20 blur opacity-40 group-hover:opacity-60 transition duration-1000" />
+                <div className="relative flex h-20 w-20 items-center justify-center rounded-[1.5rem] bg-white/55 border border-white/80 text-2xl font-black text-primary shadow-xl">
                   {getInitials(user?.firstName, user?.lastName, user?.username)}
                 </div>
-                <div className="absolute -bottom-1 -right-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 border-4 border-[#0A0A0A] shadow-xl">
+                <div className="absolute -bottom-1 -right-1 flex h-8 w-8 items-center justify-center rounded-full bg-[#3aa66a] border-4 border-white shadow-xl">
                   <Zap className="h-4 w-4 text-white fill-white" />
                 </div>
               </div>
               <div className="space-y-1">
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Operational Intelligence</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Practice Overview</p>
                 <h1 className="text-4xl font-black tracking-tighter text-foreground sm:text-5xl">
                   Greetings, <span className="text-primary">{firstName}</span>.
                 </h1>
-                <p className="text-sm font-medium text-muted-foreground/80">Your cognitive performance is up <span className="text-emerald-400 font-bold">14%</span> this week.</p>
+                <p className="text-sm font-medium text-muted-foreground/80">Your interview confidence is up <span className="text-[#24824f] font-bold">14%</span> this week.</p>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4 animate-slide-up delay-100">
               <Link
                 to="/generate/create"
-                className="group relative inline-flex h-14 items-center justify-center gap-3 rounded-2xl bg-primary px-8 text-sm font-black text-primary-foreground transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
+                className="group relative inline-flex h-14 items-center justify-center gap-3 rounded-2xl bg-[#111118] px-8 text-sm font-black text-white transition-all hover:scale-105 active:scale-95 shadow-lg shadow-black/20"
               >
                 <Plus className="h-5 w-5" />
                 Create New Round
@@ -134,7 +134,7 @@ export const Dashboard = () => {
               {latestInterview && (
                 <Link
                   to={`/generate/interview/${latestInterview.id}`}
-                  className="inline-flex h-14 items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md px-8 text-sm font-black text-foreground transition-all hover:bg-white/10 active:scale-95 hover:border-white/20"
+                  className="inline-flex h-14 items-center justify-center gap-3 rounded-2xl border border-white/75 bg-white/45 backdrop-blur-md px-8 text-sm font-black text-foreground transition-all hover:bg-white active:scale-95"
                 >
                   <Play className="h-5 w-5 text-primary fill-primary/10" />
                   Resume Session
@@ -154,14 +154,14 @@ export const Dashboard = () => {
               value={loading ? "..." : interviews.length.toString()} 
               detail="System throughput" 
               icon={BrainCircuit}
-              trend={<TrendingUp className="w-3 h-3 text-emerald-400" />}
+              trend={<TrendingUp className="w-3 h-3 text-[#24824f]" />}
             />
             <StatCard 
               label="Mean Proficiency" 
               value={stats?.avgScore && stats.avgScore > 0 ? stats.avgScore.toFixed(1) : "-"} 
               detail="System accuracy" 
               icon={BarChart3}
-              color="text-emerald-400"
+              color="text-[#24824f]"
             />
             <StatCard 
               label="Current Streak" 
@@ -180,8 +180,8 @@ export const Dashboard = () => {
           </section>
 
           {/* Practice Workspace */}
-          <section className="glass-card rounded-[2.5rem] overflow-hidden">
-            <div className="flex flex-col gap-6 border-b border-white/10 p-8 sm:flex-row sm:items-center sm:justify-between bg-white/[0.02]">
+          <section className="glass-card rounded-[1.75rem] overflow-hidden">
+            <div className="flex flex-col gap-6 border-b border-white/70 p-8 sm:flex-row sm:items-center sm:justify-between bg-white/20">
               <div>
                 <h2 className="text-2xl font-black tracking-tight flex items-center gap-3">
                   <Activity className="w-6 h-6 text-primary" />
@@ -197,7 +197,7 @@ export const Dashboard = () => {
             {loading ? (
               <div className="grid gap-6 p-8">
                 {[1, 2, 3].map((item) => (
-                  <div key={item} className="h-40 animate-pulse rounded-3xl bg-white/5" />
+                  <div key={item} className="h-40 animate-pulse rounded-2xl bg-white/35" />
                 ))}
               </div>
             ) : interviews.length === 0 ? (
@@ -218,7 +218,7 @@ export const Dashboard = () => {
                 </Link>
               </div>
             ) : (
-              <div className="divide-y divide-white/10">
+              <div className="divide-y divide-border/60">
                 {interviews.map((interview) => {
                   const interviewAnswers = answersByInterview[interview.id] ?? [];
                   const average = interviewAnswers.length
@@ -234,7 +234,7 @@ export const Dashboard = () => {
                           <span className={cn(
                             "rounded-full px-4 py-1 text-[10px] font-black uppercase tracking-[0.2em] border",
                             interviewAnswers.length >= questionCount && questionCount > 0 
-                              ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.1)]" 
+                              ? "border-[#7dbb95]/50 bg-[#dfeee2] text-[#1f5f42]" 
                               : "border-primary/30 bg-primary/10 text-primary shadow-[0_0_15px_rgba(16,185,129,0.1)]"
                           )}>
                             {interviewAnswers.length >= questionCount && questionCount > 0 ? "Completed" : "In Progress"}
@@ -259,8 +259,8 @@ export const Dashboard = () => {
                             <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Proficiency</p>
                             <p className="text-3xl font-black text-foreground tracking-tighter">{average > 0 ? average.toFixed(1) : "0.0"}</p>
                           </div>
-                          <div className="h-12 w-1.5 bg-white/5 rounded-full overflow-hidden border border-white/5 shadow-inner">
-                            <div className="bg-primary w-full transition-all duration-1000 shadow-[0_0_10px_rgba(16,185,129,0.5)]" style={{ height: `${average * 10}%` }} />
+                          <div className="h-12 w-1.5 bg-white/45 rounded-full overflow-hidden border border-white/70 shadow-inner">
+                            <div className="bg-primary w-full transition-all duration-1000" style={{ height: `${average * 10}%` }} />
                           </div>
                         </div>
 
@@ -278,7 +278,7 @@ export const Dashboard = () => {
           </section>
 
           {/* Performance Analytics */}
-          <section className="glass-card rounded-[2.5rem] p-10 relative overflow-hidden">
+          <section className="glass-card rounded-[1.75rem] p-10 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-5 rotate-12">
                 <BarChart3 className="w-32 h-32 text-primary" />
             </div>
@@ -290,11 +290,11 @@ export const Dashboard = () => {
             </div>
 
             {scoreHistory.length === 0 ? (
-              <div className="mt-10 flex flex-col items-center justify-center py-20 border-2 border-dashed border-white/5 rounded-[2rem] bg-white/[0.01]">
+              <div className="mt-10 flex flex-col items-center justify-center py-20 border-2 border-dashed border-border/60 rounded-[1.5rem] bg-white/25">
                 <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">No Telemetry Available</p>
               </div>
             ) : (
-              <div className="mt-14 flex h-56 items-end gap-4 border-b border-white/10 pb-6 relative z-10">
+              <div className="mt-14 flex h-56 items-end gap-4 border-b border-border/60 pb-6 relative z-10">
                 {scoreHistory.map((answer, index) => (
                   <div key={`${answer.id}-${index}`} className="group relative flex flex-1 flex-col items-center gap-4">
                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all bg-primary px-3 py-1 rounded-lg text-[10px] font-black shadow-xl shadow-primary/20 z-20">
@@ -319,7 +319,7 @@ export const Dashboard = () => {
           <PreparationRoadmap stats={stats} interviews={interviews} />
 
           {/* Quick Actions */}
-          <section className="glass-card rounded-[2.5rem] p-8 border-white/5">
+          <section className="glass-card rounded-[1.75rem] p-8">
             <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary mb-6">Cognitive Metrics</h3>
             <div className="space-y-4">
               <MetricBox label="Avg. Cadence" value={communication.avgWpm ? `${communication.avgWpm} WPM` : "-"} icon={Zap} />
@@ -329,7 +329,7 @@ export const Dashboard = () => {
           </section>
 
           {/* Feature Access */}
-          <section className="glass-card rounded-[2.5rem] p-8 border-white/5">
+          <section className="glass-card rounded-[1.75rem] p-8">
             <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary mb-6">System Modules</h3>
             <div className="space-y-5">
               <FeatureItem label="AI Simulation" active={interviews.length > 0} count={interviews.length} />
@@ -340,7 +340,7 @@ export const Dashboard = () => {
           </section>
 
           {/* Achievements */}
-          <section className="glass-card rounded-[2.5rem] p-8 border-white/5 relative overflow-hidden">
+          <section className="glass-card rounded-[1.75rem] p-8 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-6 opacity-5 -rotate-12">
                 <Trophy className="w-20 h-20 text-primary" />
             </div>
@@ -348,7 +348,7 @@ export const Dashboard = () => {
               <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary">Milestones</h3>
             </div>
             {stats?.badges.length === 0 ? (
-              <div className="text-center py-6 border border-white/5 rounded-2xl bg-white/[0.01]">
+              <div className="text-center py-6 border border-border/60 rounded-2xl bg-white/25">
                 <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest italic">No Achievements Logged</p>
               </div>
             ) : (
@@ -374,14 +374,14 @@ export const Dashboard = () => {
 
 function StatCard({ label, value, detail, icon: Icon, color = "text-primary", trend, isStreak }: any) {
   return (
-    <article className="glass-card rounded-[2rem] p-8 relative overflow-hidden group hover:bg-white/[0.04]">
+    <article className="glass-card rounded-2xl p-8 relative overflow-hidden group hover:bg-white/45">
       <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-500">
         <Icon className="w-20 h-20" />
       </div>
       <div className="relative z-10 space-y-6">
         <div className="flex items-center justify-between">
           <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">{label}</p>
-          <div className="p-2 rounded-xl bg-white/5 border border-white/5 group-hover:border-primary/20 group-hover:bg-primary/5 transition-all">
+          <div className="p-2 rounded-xl bg-white/45 border border-white/70 group-hover:border-primary/25 group-hover:bg-primary/10 transition-all">
             <Icon className={cn("w-5 h-5", color)} />
           </div>
         </div>
@@ -402,8 +402,8 @@ function Badge({ label, variant = "default" }: any) {
     <span className={cn(
       "rounded-lg px-3 py-1.5 text-[9px] font-black uppercase tracking-widest border shadow-sm transition-all",
       variant === "emerald" 
-        ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400" 
-        : "border-white/10 bg-white/5 text-muted-foreground hover:border-white/20"
+        ? "border-[#7dbb95]/50 bg-[#dfeee2] text-[#1f5f42]" 
+        : "border-white/70 bg-white/40 text-muted-foreground hover:border-primary/25"
     )}>
       {label}
     </span>
@@ -417,8 +417,8 @@ function ActionBtn({ to, icon: Icon, label, primary }: any) {
       className={cn(
         "flex h-11 items-center gap-2.5 rounded-xl px-5 text-xs font-black uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-lg shadow-black/20",
         primary 
-          ? "bg-primary text-primary-foreground shadow-primary/20 hover:shadow-primary/30" 
-          : "border border-white/10 bg-white/5 text-foreground hover:bg-white/10 hover:border-white/20"
+          ? "bg-[#111118] text-white shadow-black/20 hover:shadow-black/25" 
+          : "border border-white/70 bg-white/45 text-foreground hover:bg-white"
       )}
     >
       <Icon className="h-4 w-4" />
@@ -429,7 +429,7 @@ function ActionBtn({ to, icon: Icon, label, primary }: any) {
 
 function MetricBox({ label, value, icon: Icon }: any) {
   return (
-    <div className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.02] border border-white/5 group hover:border-primary/20 transition-all">
+    <div className="flex items-center justify-between p-4 rounded-2xl bg-white/30 border border-white/70 group hover:border-primary/25 transition-all">
       <div className="flex items-center gap-4">
         <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-all">
           <Icon className="w-4 h-4 text-primary" />
