@@ -221,6 +221,9 @@
   .leaderboard-row.current-user {
     @apply bg-emerald-500/10 border border-emerald-500/30;
   }
+  /* .leaderboard-row.current-user {
+    @apply bg-emerald-500/10 border border-emerald-500/30;
+  } */
 
   /* Playhead animation */
   .playhead {
