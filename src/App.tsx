@@ -14,6 +14,7 @@ import { SystemDesignPage } from "./routes/system-design-page";
 import { ReplayPage } from "./routes/replay-page";
 import { GamificationPage } from "./routes/gamification-page";
 
+
 export const App = () => {
   return (
     <Router>
