@@ -1,7 +1,7 @@
 <div align="center">
   <img src="public/svg/logo.svg" alt="PrepGenius Logo" width="120" />
 
-  # 💼 PrepGenius
+  # 💼 PrepGenius the platform for practice
   
   **The Ultimate AI-Powered Tech Interview SaaS**
 
